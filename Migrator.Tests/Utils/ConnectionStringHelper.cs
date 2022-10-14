@@ -46,7 +46,15 @@ namespace Migrator.Tests.Utils
         internal static string GetLinkedServer(string connectionString)
         {
             var dataSource = GetDataSource(connectionString);
-            return dataSource.Substring(0, dataSource.IndexOf(','));
+
+            string linkedServer;
+
+            if (dataSource.Contains(',')) 
+                linkedServer = dataSource.Substring(0, dataSource.IndexOf(','));
+            else 
+                linkedServer = dataSource;
+
+            return linkedServer;
         }
     }
 }
