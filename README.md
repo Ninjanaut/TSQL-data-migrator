@@ -3,16 +3,16 @@
 A procedure that allows you to easily copy tables data from one database to another. 
 
 ### Procedure
-* Automatically determines the order of dependencies between tables, so there is no need to recreate foreign keys. 
-* Supports usage of linked server for the source database.
+* Determines the order of dependencies between tables, so there is no need to recreate foreign keys. 
 * Does not recreate the target tables, so the structure and permissions will not change.
+* Handles computed columns.
+* Supports usage of linked server for the source database.
+* Uses TABLOCK on an insert for source and target table for better performance.
 * Correctly reseeds tables even for newly created tables.
-* Checks whether the source and target tables exists.
-* Checks whether the structure of the source and target tables matches.
-  * The differences are displayed in the query window.
+* Checks whether the source and target tables exists and their structure matches.
+  * The structure differences will display in the query window.
 * Input parameters are guarded with QUOTENAME function to prevent SQL injection.
-* Can handle computed columns.
-* Under the MIT license you can use this code for commercial use.
+* You can use this code for commercial use.
 
 ### Solution
 * Contains two projects
