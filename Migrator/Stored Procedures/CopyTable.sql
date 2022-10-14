@@ -34,7 +34,7 @@ if (IDENT_CURRENT(@targetTableName) is not null)
 
 		set identity_insert ' + @targetTableName + ' on
 
-		insert into ' + @targetTableName + '('+@columns+')
+		insert into ' + @targetTableName + '('+@columns+') WITH(TABLOCK)
 
 		select ' + @columns + ' from ' + @sourceTableName + ' WITH(TABLOCK)
 
@@ -49,7 +49,7 @@ else
 
 	begin
 
-		insert into ' + @targetTableName + '(' + @columns + ')
+		insert into ' + @targetTableName + '(' + @columns + ') WITH(TABLOCK)
 
 		select ' + @columns + ' from ' + @sourceTableName + ' WITH(TABLOCK)
 
